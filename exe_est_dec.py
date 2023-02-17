@@ -285,3 +285,56 @@ elif delta > 0:
   print(f"As raízes desta equação são {x_1} e {x_2}.")
 else:
   print("Valores Inválidos")
+
+# 17 - Peça um ano e exiba se é bissexto ou não
+ano = int(input("Digite um ano: ")[:4])
+bis = [*range(0, 10000, 4)]
+if ano in bis:
+    print(f"{ano} é um ano bissexto.")
+elif ano not in bis:
+    print(f"{ano} não é um ano bissexto.")
+else:
+    print("Valor inválido")
+
+# 18 - Verificador de data válida
+print("Digite uma data em formato dd/mm/aaaa: ")
+dt = [int(input()[:2]), int(input()[:2]), int(input()[:4])]
+dd = [*range(1, 31)]
+mm = [*range(1, 12)]
+aa = [*range(0, 10000)]
+ab = [*range(0, 10000, 4)]
+m30 = [4, 6, 9, 10]
+if dt[1] in m30 and dt[0] == 31:
+    print(f"{dt[0]}/{dt[1]}/{dt[2]} é uma data inválida.")
+elif dt[1] == 2 and dt[0] > 28 and dt[2] not in ab or dt[1] == 2 and dt[0] > 29 and dt[2] in ab:
+    print(f"{dt[0]}/{dt[1]}/{dt[2]} é uma data inválida.")
+elif dt[0] in dd or dt[1] in mm or dt[2] in aa:
+    print(f"{dt[0]}/{dt[1]}/{dt[2]} é uma data válida.")
+elif dt[0] not in dd or dt[1] not in mm or dt[2] not in aa:
+    print(f"{dt[0]}/{dt[1]}/{dt[2]} é uma data inválida.")
+else:
+    print("Valores inválidos")
+
+# 19 - Leitor de centenas, dezenas e unidades
+numero = str(input("Digite um número inteiro de 1 a 999: "))
+num = [int(un) for un in numero]
+if int(numero) < 0 or int(numero) > 999:
+    print("Número inválido.")
+elif num[0] > 1 and num[1] > 1 and num[2] > 1:
+    print(f"{num[0]} centenas, {num[1]} dezenas e {num[2]} unidades.")
+elif num[0] > 1 and num[1] > 1 and num[2] == 1:
+    print(f"{num[0]} centenas, {num[1]} dezenas e {num[2]} unidade.")
+elif num[0] > 1 and num[1] == 1 and num[2] > 1:
+    print(f"{num[0]} centenas, {num[1]} dezena e {num[2]} unidades.")
+elif num[0] == 1 and num[1] > 1 and num[2] > 1:
+    print(f"{num[0]} centena, {num[1]} dezenas e {num[2]} unidades.")
+elif num[0] == 1 and num[1] == 1 and num[2] == 1:
+    print(f"{num[0]} centena, {num[1]} dezena e {num[2]} unidade.")
+elif num[0] == 1 and num[1] == 1 and num[2] > 1:
+    print(f"{num[0]} centena, {num[1]} dezena e {num[2]} unidades.")
+elif num[0] == 1 and num[1] > 1 and num[2] == 1:
+    print(f"{num[0]} centena, {num[1]} dezenas e {num[2]} unidade.")
+elif num[0] > 1 and num[1] == 1 and num[2] == 1:
+    print(f"{num[0]} centenas, {num[1]} dezena e {num[2]} unidade.")
+else:
+    print("Valores inválidos")
