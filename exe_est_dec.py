@@ -338,3 +338,19 @@ elif num[0] > 1 and num[1] == 1 and num[2] == 1:
     print(f"{num[0]} centenas, {num[1]} dezena e {num[2]} unidade.")
 else:
     print("Valores inválidos")
+    
+# 20 - Programa que lê três notas, da a média e diz se aprovado/reprovado
+print("Insira suas três notas: ")
+nota = [float(input("1º Nota: ")), float(input("2ª Nota: ")), float(input("3ª Nota: "))]
+med = (nota[0] + nota[1] + nota[2]) / 3
+sit = ["Aprovado com Distinçao!", "Aprovado.", "Reprovado."]
+if med == 10:
+  print(f"{sit[0]}")
+elif med < 10 and med >= 7:
+  print(f"{sit[1]}")
+elif med < 7 and med >= 0:
+  print(f"{sit[2]}")
+else:
+  print("Valor inválido")
+
+
