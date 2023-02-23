@@ -353,4 +353,51 @@ elif med < 7 and med >= 0:
 else:
   print("Valor inválido")
 
+# 21
 
+
+# 22 - 
+num = str(input("Digite um número: "))
+ip = int(num) % 2
+if num == 0:
+    print("Zero não é impar e nem par")
+elif ip == 1:
+    print(f"{num} é um número impar.")
+elif ip == 0:
+    print(f"{num} é um número par.")
+else:
+    print("Valor inválido")
+
+# 23 - Informa se é inteiro ou decimal
+num = float(input("Digite um número inteiro ou decimal: "))
+nua = round(num)
+if num == nua:
+    print(f"{int(num)} é um número inteiro.")
+elif num != nua:
+    print(f"{num} é um número decimal.")
+else:
+    print("Valor inválido")
+    
+# 24 - Programa que recebe dois números, faz operação desejada e fornece informações dos números
+num = [float(input("Digite o 1º Número: ")), float(input("Digite o 2º Número: "))]
+op = int(input('''Qual operação deseja realizar?
+0 - Soma
+1 - Subtração
+2 - Multiplicação
+3 - Divisão
+Operação: '''))
+if op > 0 or op > 3:
+    print("Opção inválida")
+elif op == 0:
+    sma = num[1] + num[2]
+    print(f'''{num[1]} + {num[2]} = {sma}
+    {sma}''')
+elif op == 1:
+    sub = num[1] - num[2]
+    print(sub)
+elif op == 2:
+    mlt = num[1] * num[2]
+    print(mlt)
+elif op == 3:
+    div = num[1] / num[2]
+    print(div)
