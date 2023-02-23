@@ -359,9 +359,7 @@ else:
 # 22 - 
 num = str(input("Digite um número: "))
 ip = int(num) % 2
-if num == 0:
-    print("Zero não é impar e nem par")
-elif ip == 1:
+if ip == 1:
     print(f"{num} é um número impar.")
 elif ip == 0:
     print(f"{num} é um número par.")
@@ -380,24 +378,50 @@ else:
     
 # 24 - Programa que recebe dois números, faz operação desejada e fornece informações dos números
 num = [float(input("Digite o 1º Número: ")), float(input("Digite o 2º Número: "))]
-op = int(input('''Qual operação deseja realizar?
+op = int(input('''
+Qual operação deseja realizar?
 0 - Soma
 1 - Subtração
 2 - Multiplicação
 3 - Divisão
+
 Operação: '''))
-if op > 0 or op > 3:
-    print("Opção inválida")
-elif op == 0:
-    sma = num[1] + num[2]
-    print(f'''{num[1]} + {num[2]} = {sma}
-    {sma}''')
+
+if op == 0:
+    rst = num[0] + num[1]
+    op_t = str("+")
 elif op == 1:
-    sub = num[1] - num[2]
-    print(sub)
+    rst = num[0] - num[1]
+    op_t = str("-")
 elif op == 2:
-    mlt = num[1] * num[2]
-    print(mlt)
+    rst = num[0] * num[1]
+    op_t = str("*")
 elif op == 3:
-    div = num[1] / num[2]
-    print(div)
+    rst = num[0] / num[1]
+    op_t = str("/")
+else:
+    print("Opção inválida")
+
+nua = round(rst)
+if nua == rst:
+    nua_t = str("inteiro")
+    rst = int(rst)
+elif nua != rst:
+    nua_t = str("decimal")
+ip = int(rst) % 2
+
+if rst == 0 and ip == 0:
+    ip_t = str("não par ou impar")
+elif ip == 1:
+    ip_t = str("impar")
+elif ip == 0:
+    ip_t = str("par")
+pon = str("positivo")
+
+if rst == 0:
+    pon = str("nulo")
+elif rst < 0:
+    pon = str("negativo")
+
+print(f'''{num[0]} {op_t} {num[1]} = {rst}
+{rst} é um número {ip_t}, {pon} e {nua_t}''')
