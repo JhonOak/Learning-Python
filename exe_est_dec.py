@@ -379,7 +379,9 @@ else:
 # 24 - Programa que recebe dois números, faz operação desejada e fornece informações dos números
 num = [float(input("Digite o 1º Número: ")), float(input("Digite o 2º Número: "))]
 op = int(input('''
+
 Qual operação deseja realizar?
+
 0 - Soma
 1 - Subtração
 2 - Multiplicação
@@ -402,26 +404,68 @@ elif op == 3:
 else:
     print("Opção inválida")
 
+ip = int(rst) % 2
+if ip == 1:
+    ip_t = str("impar")
+elif ip == 0:
+    ip_t = str("par")
+
 nua = round(rst)
 if nua == rst:
     nua_t = str("inteiro")
     rst = int(rst)
 elif nua != rst:
     nua_t = str("decimal")
-ip = int(rst) % 2
-
-if rst == 0 and ip == 0:
     ip_t = str("não par ou impar")
-elif ip == 1:
-    ip_t = str("impar")
-elif ip == 0:
-    ip_t = str("par")
-pon = str("positivo")
 
+pon = str("positivo")
 if rst == 0:
     pon = str("nulo")
 elif rst < 0:
     pon = str("negativo")
 
 print(f'''{num[0]} {op_t} {num[1]} = {rst}
-{rst} é um número {ip_t}, {pon} e {nua_t}''')
+{rst} é um número {ip_t}, {pon} e {nua_t}.''')
+
+# 26
+# math.sqrt()
+import math
+abst = str(input('''Olá, com o que gostaria de abastecer?
+
+0 - Gasolina
+1 - Alcool
+2 - Gasolina e Alcool
+
+Opção: '''))
+G = False
+A = False
+if abst == 0:
+    G = True
+elif abst == 1:
+    A = True
+elif abst == 2:
+    G = True
+    A = True
+
+preco = [2.50, 1.90]
+
+while G == True:
+    lts_g = float(input('''
+    Quantos litros de Gasolina? '''))
+    tot_g = lts_g * preco[0]
+    if lts_g >= 1 and lts_g <= 20:
+        tcd_g = tot_g - (math.sqrt(lts_g) * preco[0] * 0.04)
+    elif lts_g >= 21:
+        tcd_g = tot_g - (math.sqrt(lts_g) * preco[0] * 0.06)
+
+while A == True:
+    lts_a = float(input('''
+    Quantos litros de Alcool? '''))
+    tot_a = lts_a * preco[1]
+    if lts_a >= 1 and lts_a <= 20:
+        tcd_a = tot_a - (math.sqrt(lts_a) * preco[1] * 0.03)
+    elif lts_a >= 21:
+        tcd_a = tot_a - (math.sqrt(lts_a) * preco[1] * 0.05)
+
+print(f"{tcd_a} {tcd_g}")
+
