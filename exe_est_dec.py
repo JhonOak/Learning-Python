@@ -428,44 +428,66 @@ print(f'''{num[0]} {op_t} {num[1]} = {rst}
 {rst} é um número {ip_t}, {pon} e {nua_t}.''')
 
 # 26
-# math.sqrt()
 import math
-abst = str(input('''Olá, com o que gostaria de abastecer?
+abst = int(input('''Qual combustivel deseja abastecer?
 
-0 - Gasolina
-1 - Alcool
-2 - Gasolina e Alcool
+0 - Alcool
+1 - Gasolina
+2 - Alcool e Gasolina
 
-Opção: '''))
-G = False
-A = False
-if abst == 0:
-    G = True
-elif abst == 1:
-    A = True
+Digite a opção numérica: '''))
+prc = [1.9, 2.5]
+des = [0.03, 0.04, 0.05, 0.06]
+if abst == 0 or abst == 1:
+    lts = float(input('''
+Quantos litros? '''))
+    tot = prc[abst] * lts
+    if 1 <= lts < 21:
+        tcd = tot - (math.floor(lts) * prc[abst] * des[abst])
+        print(f'''
+Valor a pagar: R$ {round(tcd, 2)}''')
+    elif lts >= 21:
+        tcd = tot - (math.floor(lts) * prc[abst] * des[abst + 2])
+        print(f'''
+Valor a pagar: R$ {round(tcd, 2)}''')
 elif abst == 2:
-    G = True
-    A = True
+    lt_a = float(input('''
+Quantos litros de Alcool? '''))
+    lt_g = float(input("E quantos litros de Gasolina? "))
+    tot = [prc[0] * lt_a, prc[1] * lt_g]
+    if 1 <= lt_a < 21 and 1 <= lt_g <= 21:
+        tcd_a = tot[0] - (math.floor(lt_a) * prc[0] * des[0])
+        tcd_g = tot[1] - (math.floor(lt_g) * prc[1] * des[1])
+        print(f'''
+Valor a pagar: 
 
-preco = [2.50, 1.90]
+Alcool   R$ {round(tcd_a, 2)}
+Gasolina R$ {round(tcd_g, 2)}
+Total    R$ {round(tcd_a + tcd_g, 2)}''')
+    elif 1 <= lt_a < 21 <= lt_g:
+        tcd_a = tot[0] - (math.floor(lt_a) * prc[0] * des[0])
+        tcd_g = tot[1] - (math.floor(lt_g) * prc[1] * des[3])
+        print(f'''
+Valor a pagar: 
 
-while G == True:
-    lts_g = float(input('''
-    Quantos litros de Gasolina? '''))
-    tot_g = lts_g * preco[0]
-    if lts_g >= 1 and lts_g <= 20:
-        tcd_g = tot_g - (math.sqrt(lts_g) * preco[0] * 0.04)
-    elif lts_g >= 21:
-        tcd_g = tot_g - (math.sqrt(lts_g) * preco[0] * 0.06)
+Alcool   R$ {round(tcd_a, 2)}
+Gasolina R$ {round(tcd_g, 2)}
+Total    R$ {round(tcd_a + tcd_g, 2)}''')
+    elif 1 <= lt_g < 21 <= lt_a:
+        tcd_a = tot[0] - (math.floor(lt_a) * prc[0] * des[2])
+        tcd_g = tot[1] - (math.floor(lt_g) * prc[1] * des[1])
+        print(f'''
+Valor a pagar: 
 
-while A == True:
-    lts_a = float(input('''
-    Quantos litros de Alcool? '''))
-    tot_a = lts_a * preco[1]
-    if lts_a >= 1 and lts_a <= 20:
-        tcd_a = tot_a - (math.sqrt(lts_a) * preco[1] * 0.03)
-    elif lts_a >= 21:
-        tcd_a = tot_a - (math.sqrt(lts_a) * preco[1] * 0.05)
+Alcool   R$ {round(tcd_a, 2)}
+Gasolina R$ {round(tcd_g, 2)}
+Total    R$ {round(tcd_a + tcd_g, 2)}''')
+    elif lt_g >= 21 <= lt_g:
+        tcd_a = tot[0] - (math.floor(lt_a) * prc[0] * des[2])
+        tcd_g = tot[1] - (math.floor(lt_g) * prc[1] * des[3])
+        print(f'''
+Valor a pagar: 
 
-print(f"{tcd_a} {tcd_g}")
-
+Alcool   R$ {round(tcd_a, 2)}
+Gasolina R$ {round(tcd_g, 2)}
+Total    R$ {round(tcd_a + tcd_g, 2)}''')
