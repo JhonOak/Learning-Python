@@ -354,7 +354,62 @@ else:
   print("Valor inválido")
 
 # 21
-
+sqe = int(input("Quanto deseja sacar? "))
+per = False
+nta = [100, 50, 10, 5, 1]
+qnt = [0, 0, 0, 0, 0]
+din = 0
+if 10 <= sqe <= 600:
+    per = True
+while per is False:
+    sqe = int(input('''Valor inválido.
+Digite uma quantia de 10 a 600: '''))
+    if 10 <= sqe <= 600:
+        per = True
+        break
+while sqe > din:
+    din = din + nta[0]
+    qnt[0] = qnt[0] + 1
+    if sqe < din:
+        din = din - nta[0]
+        qnt[0] = qnt[0] - 1
+        break
+while sqe > din:
+    din = din + nta[1]
+    qnt[1] = qnt[1] + 1
+    if sqe < din:
+        din = din - nta[1]
+        qnt[1] = qnt[1] - 1
+        break
+while sqe > din:
+    din = din + nta[2]
+    qnt[2] = qnt[2] + 1
+    if sqe < din:
+        din = din - nta[2]
+        qnt[2] = qnt[2] - 1
+        break
+while sqe > din:
+    din = din + nta[3]
+    qnt[3] = qnt[3] + 1
+    if sqe < din:
+        din = din - nta[3]
+        qnt[3] = qnt[3] - 1
+        break
+while sqe > din:
+    din = din + nta[4]
+    qnt[4] = qnt[4] + 1
+    if sqe < din:
+        din = din - nta[4]
+        qnt[4] = qnt[4] - 1
+        break
+if sqe == din:
+    print(f'''
+Notas saquadas:
+{qnt[0]} de {nta[0]} Reais
+{qnt[1]} de {nta[1]}  Reais
+{qnt[2]} de {nta[2]}  Reais
+{qnt[3]} de {nta[3]}   Reais
+{qnt[4]} de {nta[4]}   Real''')
 
 # 22 - 
 num = str(input("Digite um número: "))
@@ -426,6 +481,52 @@ elif rst < 0:
 
 print(f'''{num[0]} {op_t} {num[1]} = {rst}
 {rst} é um número {ip_t}, {pon} e {nua_t}.''')
+
+# 25
+import time
+print("Responda as perguntas dizendo somente a verdade:")
+time.sleep(3)
+pnts = 0
+txt = "Você foi considerado como: "
+jlgt = ["Inocente", "Suspeito", "Cúmplice", "Assassino"]
+prgt = str(input('''
+Telefonou para vítima?
+'''))
+if prgt == "sim" or prgt == "Sim":
+  pnts = pnts + 1
+prgt = str(input('''
+Esteve no local do crime?
+'''))
+if prgt == "sim" or prgt == "Sim":
+  pnts = pnts + 1
+prgt = str(input('''
+Mora perto da vítima?
+'''))
+if prgt == "sim" or prgt == "Sim":
+  pnts = pnts + 1
+prgt = str(input('''
+Devia para a vítima?
+'''))
+if prgt == "sim" or prgt == "Sim":
+  pnts = pnts + 1
+prgt = str(input('''
+Já trabalhou com a vítima?
+'''))
+time.sleep(1)
+print('''
+Calculando sua participação no crime...
+''')
+time.sleep(3)
+if prgt == "sim" or prgt == "Sim":
+  pnts = pnts + 1
+if 0 >= pnts <= 1:
+  print(f"{txt}{jlgt[0]}")
+elif pnts == 2:
+  print(f"{txt}{jlgt[1]}")
+elif 3 >= pnts <= 4:
+  print(f"{txt}{jlgt[2]}")
+elif pnts == 5:
+  print(f"{txt}{jlgt[3]}")
 
 # 26
 import math
