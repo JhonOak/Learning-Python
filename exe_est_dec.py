@@ -592,3 +592,53 @@ Valor a pagar:
 Alcool   R$ {round(tcd_a, 2)}
 Gasolina R$ {round(tcd_g, 2)}
 Total    R$ {round(tcd_a + tcd_g, 2)}''')
+        
+# 27
+
+m = [2.5, 1.8, 2.2, 1.5]
+mca = [1.8, 1.5]
+kg = [float(input("Quer quantos Kg de Morango? ")), float(input("E quantos Kg de Maçã? "))]
+if kg[0] > 0 or kg[1] > 0:
+  tot = [m[0] * kg[0], m[1] * kg[1]]
+  if kg[0] > 5:
+    tot[0] = m[2] * kg[0]
+  if kg[1] > 5:
+    tot[1] = m[3] * kg[1]
+  pag = tot[0] + tot[1]
+  desc = pag - (pag * 0.1)
+  if (kg[0] + kg[1]) > 8 or (tot[0] + tot[1]) > 25:
+    print(f"Total a pagar: R$ {desc:.2f}")
+  else:
+    print(f"Total a pagar: R$ {pag:.2f}")
+    
+# 28
+nme = ["Filé Duplo", "Alcatra", "Picanha"]
+crn = int(input(f'''Digite a opção do tipo de carne que deseja comprar: 
+0 - {nme[0]}
+1 - {nme[1]}
+2 - {nme[2]}
+
+Opção: '''))
+kg = float(input(f'''
+Quantos Kg de {nme[crn]} deseja comprar? '''))
+prc = [4.9, 5.9, 6.9, 5.8, 6.8, 7.8]
+tot = prc[crn] * kg
+crt = int(input('''
+Pagamento com Cartão Tabajara? 
+0 - Sim
+1 - Não
+
+Opção: '''))
+dsc = [0.05, 0]
+if kg > 5:
+  tot = prc[crn + 3] * kg
+pag = tot - (tot * dsc[crt])
+print(f'''
+Cupom Fiscal
+
+Tipo de Carne: {nme[crn]}
+Quantidade   : {kg:.2f} Kg
+Preço Total  : R$ {tot:.2f}
+Desconto     : {(dsc[crt] * 100):.0f}%
+Valor a pagar: R$ {pag:.2f}''')
+  
