@@ -128,9 +128,14 @@ print(mlt)
 
 # 14
 print("Digite a seguir dez números inteiros:")
-cnt = 0
+cnt = [0, 0, 0]
 lst = []
-while cnt < 10:
+while cnt[2] < 10:
   lst.append(int(input()))
-  cnt += 1
-print(lst)
+  poi = lst[cnt[2]] % 2
+  if poi == 0:
+    cnt[0] += 1
+  elif poi == 1:
+    cnt[1] += 1
+  cnt[2] += 1
+print(f"{cnt[0]} Números Pares e {cnt[1]} Impares")
