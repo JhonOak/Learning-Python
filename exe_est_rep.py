@@ -139,3 +139,46 @@ while cnt[2] < 10:
     cnt[1] += 1
   cnt[2] += 1
 print(f"{cnt[0]} Números Pares e {cnt[1]} Impares")
+
+# 15
+num = int(input("Digite o número de repetições Fibonacci: "))
+lst = [0, 0]
+fib = 1
+cnt = 0
+while cnt < num:
+  fib = fib + lst[cnt]
+  lst.append(fib)
+  cnt += 1
+  print(fib)
+
+# 16
+lst = [0, 0]
+fib = 1
+cnt = 0
+while fib < 500:
+  fib = fib + lst[cnt]
+  lst.append(fib)
+  cnt += 1
+  print(fib)
+
+# 17
+num = int(input("Digite um número para saber seu fatorial: "))
+fat = 1
+cnt = 0
+while cnt < num:
+  cnt += 1
+  fat = fat * cnt
+print(fat)
+
+# 20
+while True:
+  num = int(input("Digite um número para saber seu fatorial: "))
+  fat = 1
+  cnt = 0
+  while cnt < num:
+    cnt += 1
+    fat = fat * cnt
+  if 0 <= num < 16:
+    print(f"{fat}\n")
+  elif num < 0 or num >= 16:
+    print("Apenas números de 0 a 15\n")
