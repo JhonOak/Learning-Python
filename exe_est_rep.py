@@ -117,3 +117,20 @@ while cnt < 10:
   tab = num * cnt
   print(f"{num} x {cnt} = {tab}")
   
+# 13
+num = [int(input("Digite o número base: ")), int(input("Digite o expoente: "))]
+mlt = 1
+cnt = 0
+while cnt < num[1]:
+  cnt += 1
+  mlt = mlt * num[0]
+print(mlt)
+
+# 14
+print("Digite a seguir dez números inteiros:")
+cnt = 0
+lst = []
+while cnt < 10:
+  lst.append(int(input()))
+  cnt += 1
+print(lst)
