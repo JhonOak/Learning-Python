@@ -182,3 +182,33 @@ while True:
     print(f"{fat}\n")
   elif num < 0 or num >= 16:
     print("Apenas números de 0 a 15\n")
+
+# 24
+n = int(input("Insira o número de termos da média: "))
+cnt = 0
+sma = 0
+while cnt < n:
+  cnt += 1
+  num = float(input(f"{cnt}º Termo: "))
+  sma = sma + num
+  med = sma / n
+  if cnt == n:
+    print(f"\nMédia: {med}")
+    
+# 25
+n = int(input("Insira a idade dos participantes: "))
+cnt = 0
+sma = 0
+rst = "Esta turma é "
+while cnt < n:
+  cnt += 1
+  num = float(input(f"{cnt}º Idade: "))
+  sma = sma + num
+  med = sma / n
+  if 0 < med <= 25.26 and n == cnt:
+    print(f"\n{rst}Jovem")
+  elif 25.26 < med <= 60 and n == cnt:
+    print(f"\n{rst}Adulta")
+  elif med > 60 and n == cnt:
+    print(f"\n{rst}Idosa")
+
