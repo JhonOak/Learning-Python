@@ -369,3 +369,90 @@ while cnt < elt:
     nmv = nm3
   if elt == cnt:
     print(f"{nmv} venceu a eleição.")
+
+# 29
+qnt = int(input("Qual a quantidade de itens? "))
+prc = 1.99
+tot, cnt = [0, 0]
+while cnt < qnt:
+  cnt += 1
+  tot = tot + prc
+  if cnt == qnt:
+    print(f"\nValor a ser pago: R$ {tot:.2f}")
+
+# 30
+qnt = int(input("Quantos pães? "))
+prc = 0.18
+tot, cnt = [0, 0]
+while cnt < qnt:
+  cnt += 1
+  tot = tot + prc
+  if cnt == qnt:
+    print(f"\nValor a ser pago: R$ {tot:.2f}")
+
+# 32
+num = cnt = int(input("Fatorial: "))
+lst = []
+fat = 1
+cnt += 1
+while cnt > 1:
+  cnt -= 1
+  fat = fat * cnt
+  lst.append(cnt)
+  if cnt == 1:
+    print(f"{num}! = ", end='') 
+    print(*lst, sep=' x ', end='')
+    print(f" = {fat}")
+    
+# 34
+num = int(input("Digite um número para verificar se é Primo: "))
+cnt = 0
+div = 0
+while cnt < num:
+  cnt += 1
+  prm = num % cnt
+  if prm == 0:
+    div += 1
+  if cnt == num and div > 2:
+    print(f"\n{num} não é Primo")
+  elif cnt == num and div == 2:
+    print(f"\n{num} é Primo")
+    
+# 35
+n = int(input("Digite um número para verificar os Primos de 1 a N: "))
+lst = [1]
+num, cnt, div, qdv = [0, 0, 0, 0]
+while num < n:
+  num += 1
+  while cnt < num:
+    cnt += 1
+    prm = num % cnt
+    qdv += 1
+    if prm == 0:
+      div += 1
+    if num == cnt and div == 2:
+      lst.append(num)
+      cnt = 0
+      div = 0
+      break
+    elif num == cnt and div != 2:
+      cnt = 0
+      div = 0
+      break
+  if num == n:
+    print(f"\nDe 1 a {n} os seguintes números são primos:")
+    print(*lst, sep=', ')
+    print(f"\nForam executadas {qdv} divisões para encontras estes Primos.")
+    
+# 49
+n = int(input())
+lst = []
+cnt = 0
+trm = [1, 1]
+while cnt < n:
+  lst.append(str(f"{trm[0]}/{trm[1]}"))
+  cnt += 1
+  trm[0] += 1
+  trm[1] += 2
+  if cnt == n:
+    print(lst)  
