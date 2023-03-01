@@ -280,6 +280,32 @@ while cnt < num:
   elif cnt == num and div == 2:
     print(f"\n{num} é Primo")
 
+# 23
+n = int(input("Digite um número para verificar os Primos de 1 a N: "))
+lst = [1]
+num, cnt, div, qdv = [0, 0, 0, 0]
+while num < n:
+  num += 1
+  while cnt < num:
+    cnt += 1
+    prm = num % cnt
+    qdv += 1
+    if prm == 0:
+      div += 1
+    if num == cnt and div == 2:
+      lst.append(num)
+      cnt = 0
+      div = 0
+      break
+    elif num == cnt and div != 2:
+      cnt = 0
+      div = 0
+      break
+  if num == n:
+    print(f"\nDe 1 a {n} os seguintes números são primos:")
+    print(*lst, sep=', ')
+    print(f"\nForam executadas {qdv} divisões para encontras estes Primos.")
+
 # 24
 n = int(input("Insira o número de termos da média: "))
 cnt = 0
@@ -309,3 +335,37 @@ while cnt < n:
   elif med > 60 and n == cnt:
     print(f"\n{rst}Idosa")
 
+# 26
+elt = int(input("Qual o número total de Eleitores? "))
+print('''
+Use os seguintes códigos para votar:
+1 - Candidato 1
+2 - Candidato 2
+3 - Candidato 3
+''')
+cnt = 0
+cd1, cd2, cd3, win = [0, 0, 0, 0]
+nm1, nm2, nm3, nmv = ["Candidato 1", "Candidato 2", "Candidato 3", 0]
+while cnt < elt:
+  cnt += 1
+  vto = int(input(f"{cnt}º Eleitor, digite seu voto: "))
+  if vto == 1:
+    cd1 += 1
+  elif vto == 2:
+    cd2 += 1
+  elif vto == 3:
+    cd3 += 1
+  elif not 1 <= vto <= 3:
+    print("Voto inválido, use apenas os códigos informados.")
+    cnt -= 1
+  if elt == cnt and cd1 > win:
+    win = cd1
+    nmv = nm1
+  if elt == cnt and cd2 > win:
+    win = cd2
+    nmv = nm2
+  if elt == cnt and cd3 > win:
+    win = cd3
+    nmv = nm3
+  if elt == cnt:
+    print(f"{nmv} venceu a eleição.")
