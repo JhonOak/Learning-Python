@@ -91,7 +91,33 @@ num = 0
 while num < 20:
   num += 1
   print(num, end = ' ') # <- Exibe na horizontal       print(num) <- Exibe na vertical
-  
+
+# 7
+print("Digite cinco números:\n")
+cnt = 0
+sma = 0
+while cnt < 5:
+  cnt += 1
+  num = float(input())
+  if cnt == 1:
+    man = num - 1
+  if num > man:
+    man = num
+  if cnt == 5:
+    print(f"\nMaior número: {man}")
+
+# 8
+print("Digite cinco números:\n")
+cnt = 0
+sma = 0
+while cnt < 5:
+  cnt += 1
+  num = float(input())
+  sma = sma + num
+  med = sma / cnt
+  if cnt == 5:
+    print(f"\nSoma dos números: {sma} \nMédia dos números: {med}")
+
 # 9
 for num in range(1, 50, 2):
   print(num)
@@ -170,6 +196,46 @@ while cnt < num:
   fat = fat * cnt
 print(fat)
 
+# 18
+n = int(input("Com quantos números deseja trabalhar? "))
+print()
+cnt = 0
+sma = 0
+while cnt < n:
+  cnt += 1
+  num = float(input(f"{cnt}º Número: "))
+  sma = sma + num
+  if cnt == 1:
+    man = num - 1
+    men = num + 1
+  if num > man:
+    man = num
+  if num < men:
+    men = num
+  if cnt == n:
+    print(f"\nSoma: {sma} \nMaior: {man} \nMenor: {men}")
+    
+# 19
+n = int(input("Com quantos números deseja trabalhar? "))
+print()
+cnt = 0
+sum = 0
+while cnt < n:
+  cnt += 1
+  num = float(input(f"{cnt}º Número: "))
+  while not 0 <= num <= 1000:
+    num = float(input(f"Número inválido! Digite um número de 0 a 1000\n{cnt}º Número: "))
+  sum = sum + num
+  if cnt == 1:
+    max = num - 1
+    min = num + 1
+  if num > max and 0 <= num <= 1000:
+    max = num
+  if num < min and 0 <= num <= 1000:
+    min = num
+  if cnt == n:
+    print(f"\nSoma: {sum} \nMaior: {max} \nMenor: {min}")
+
 # 20
 while True:
   num = int(input("Digite um número para saber seu fatorial: "))
@@ -182,6 +248,37 @@ while True:
     print(f"{fat}\n")
   elif num < 0 or num >= 16:
     print("Apenas números de 0 a 15\n")
+
+# 21
+num = int(input("Digite um número para verificar se é Primo: "))
+cnt = 0
+div = 0
+while cnt < num:
+  cnt += 1
+  prm = num % cnt
+  if prm == 0:
+    div += 1
+  if cnt == num and div > 2:
+    print(f"\n{num} não é Primo")
+  elif cnt == num and div == 2:
+    print(f"\n{num} é Primo")
+
+# 22
+num = int(input("Digite um número para verificar se é Primo: "))
+lst = []
+cnt = 0
+div = 0
+while cnt < num:
+  cnt += 1
+  prm = num % cnt
+  if prm == 0:
+    div += 1
+    lst.append(cnt)
+  if cnt == num and div > 2:
+    print(f"\n{num} não é Primo, pois é divisivel por:")
+    print(*lst, sep=', ')
+  elif cnt == num and div == 2:
+    print(f"\n{num} é Primo")
 
 # 24
 n = int(input("Insira o número de termos da média: "))
