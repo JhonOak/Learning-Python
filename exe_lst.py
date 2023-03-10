@@ -75,3 +75,16 @@ while cnt[0] < 10:
       sma = 0
 print(f"\n{len(vet)} dos 10 Alunos ficaram com média igual ou maior que 7.")
     
+# 7
+import random
+vet = []
+cnt, mlt = 0, 1
+while cnt < 5:
+  num = random.randint(1, 100)
+  vet.append(num)
+  mlt = mlt * vet[cnt]
+  cnt += 1
+sma = sum(vet)
+print(f"Soma: {sma}\nMultiplicação: {mlt}\nNúmeros usados: ", end="")
+print(*vet, sep=", ")
+
