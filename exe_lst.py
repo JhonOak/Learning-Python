@@ -88,3 +88,92 @@ sma = sum(vet)
 print(f"Soma: {sma}\nMultiplicação: {mlt}\nNúmeros usados: ", end="")
 print(*vet, sep=", ")
 
+# 8 t
+cnt = 0
+vet_i, vet_a = [], []
+while cnt < 5:
+  cnt += 1
+  idd = int(input(f"Digite a idade da {cnt[0]}ª Pessoa: "))
+  vet_i.append(idd)
+  alt = float(input(f"Digite a altura da {cnt[0]}ª Pessoa: "))
+  vet_a.append(alt)
+print(f"{vet_i}\n{vet_a}")
+
+# 9 t
+import random
+vet_a, vet_b = [], []
+cnt = 0
+while cnt < 10:
+  cnt += 1
+  num = random.randint(1, 10)
+  vet_a.append(num)
+  num = num ** 2
+  vet_b.append(num)
+print(f"{vet_a}\n{vet_b}\n{sum(vet_b)}")
+
+# 10 t
+import random
+vet_a, vet_b, vet_c = [], [], []
+cnt = 0
+while cnt < 10:
+  cnt += 1
+  num = random.randint(0, 9)
+  vet_a.append(num)
+  vet_c.append(num)
+  num = random.randint(0, 9)
+  vet_b.append(num)
+  vet_c.append(num)
+print(f"{vet_a}\n{vet_b}\n{vet_c}")
+
+# 11 t
+import random
+vet_a, vet_b, vet_c, vet_d = [], [], [], []
+cnt = 0
+while cnt < 10:
+  cnt += 1
+  num = random.randint(0, 9)
+  vet_a.append(num)
+  vet_d.append(num)
+  num = random.randint(0, 9)
+  vet_b.append(num)
+  vet_d.append(num)
+  num = random.randint(0, 9)
+  vet_c.append(num)
+  vet_d.append(num)
+print(f"{vet_a}\n{vet_b}\n{vet_c}\n{vet_d}")
+
+# 12 t
+import random
+cnt, alt, cnt_a = 0, 0, 1
+vet_i, vet_a = [], []
+while cnt < 30:
+  cnt += 1
+  idd = random.randint(12, 17)
+  vet_i.append(idd)
+  while alt < 1.58:
+    alt = alt + random.random()
+  vet_a.append(alt)
+  alt = 1
+med = sum(vet_a) / 30
+cnt = 0
+while cnt < 30:
+  if vet_i[cnt] > 13 and vet_a[cnt] < med:
+    cnt_a += 1
+  cnt += 1  
+print(f"{vet_i}\n{vet_a}\n{med}\n{cnt_a}")
+
+# 12 t
+import random
+cnt, cnt_t = 0, 0
+vet = []
+while cnt < 12:
+  cnt += 1
+  tmp = random.randint(19, 31) + random.random()
+  vet.append(tmp)
+med = sum(vet) / 12
+cnt = 0
+while cnt < 12:
+  if vet_i[cnt] > 13 and vet_a[cnt] < med:
+    cnt_a += 1
+  cnt += 1  
+print(f"{vet_i}\n{vet_a}\n{med}\n{cnt_a}")
