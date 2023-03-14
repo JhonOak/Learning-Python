@@ -42,6 +42,7 @@ print(f"\nQuantidade de consoantes: {qcs}\nLista de consoantes: ", end='')
 print(*vcs, sep=', ')
 
 
+
 # 5
 lst, par, imp = [], [], []
 cnt = 0
@@ -74,21 +75,8 @@ while cnt[0] < 10:
         vet.append(sma / 4)
       sma = 0
 print(f"\n{len(vet)} dos 10 Alunos ficaram com média igual ou maior que 7.")
-    
-# 7
-import random
-vet = []
-cnt, mlt = 0, 1
-while cnt < 5:
-  num = random.randint(1, 100)
-  vet.append(num)
-  mlt = mlt * vet[cnt]
-  cnt += 1
-sma = sum(vet)
-print(f"Soma: {sma}\nMultiplicação: {mlt}\nNúmeros usados: ", end="")
-print(*vet, sep=", ")
 
-# 8 t
+# 8 t erro
 cnt = 0
 vet_i, vet_a = [], []
 while cnt < 5:
@@ -99,7 +87,7 @@ while cnt < 5:
   vet_a.append(alt)
 print(f"{vet_i}\n{vet_a}")
 
-# 9 t
+# 9
 import random
 vet_a, vet_b = [], []
 cnt = 0
@@ -111,7 +99,7 @@ while cnt < 10:
   vet_b.append(num)
 print(f"{vet_a}\n{vet_b}\n{sum(vet_b)}")
 
-# 10 t
+# 10
 import random
 vet_a, vet_b, vet_c = [], [], []
 cnt = 0
@@ -125,7 +113,7 @@ while cnt < 10:
   vet_c.append(num)
 print(f"{vet_a}\n{vet_b}\n{vet_c}")
 
-# 11 t
+# 11
 import random
 vet_a, vet_b, vet_c, vet_d = [], [], [], []
 cnt = 0
@@ -142,38 +130,40 @@ while cnt < 10:
   vet_d.append(num)
 print(f"{vet_a}\n{vet_b}\n{vet_c}\n{vet_d}")
 
-# 12 t
+# 12
 import random
-cnt, alt, cnt_a = 0, 0, 1
+cnt, alt, cnt_a = 0, 0, 0
 vet_i, vet_a = [], []
 while cnt < 30:
   cnt += 1
   idd = random.randint(12, 17)
   vet_i.append(idd)
-  while alt < 1.58:
-    alt = alt + random.random()
-  vet_a.append(alt)
-  alt = 1
-med = sum(vet_a) / 30
+  while alt < 1.4:
+    alt = 1 + random.random()
+  vet_a.append(round(alt, 2))
+  alt = 0
+med = round(sum(vet_a) / 30, 2)
 cnt = 0
 while cnt < 30:
   if vet_i[cnt] > 13 and vet_a[cnt] < med:
     cnt_a += 1
-  cnt += 1  
+  cnt += 1
 print(f"{vet_i}\n{vet_a}\n{med}\n{cnt_a}")
 
-# 12 t
+# 13
 import random
-cnt, cnt_t = 0, 0
-vet = []
+cnt = 0
+vet, vet_m = [], ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro']
 while cnt < 12:
   cnt += 1
-  tmp = random.randint(19, 31) + random.random()
+  tmp = random.randint(19, 31) + round(random.random(), 2)
   vet.append(tmp)
-med = sum(vet) / 12
+med = round(sum(vet) / 12, 2)
 cnt = 0
 while cnt < 12:
-  if vet_i[cnt] > 13 and vet_a[cnt] < med:
-    cnt_a += 1
-  cnt += 1  
-print(f"{vet_i}\n{vet_a}\n{med}\n{cnt_a}")
+  if cnt == 0:
+    print(f"Meses com Temperatura acima da Média ({med}ºC): \n\n")
+  if vet[cnt] > med:
+    print(f"{vet_m[cnt]} - {vet[cnt]}ºC\n")
+  cnt += 1
+print()
