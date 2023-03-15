@@ -167,3 +167,36 @@ while cnt < 12:
     print(f"{vet_m[cnt]} - {vet[cnt]}ºC\n")
   cnt += 1
 print()
+
+# 15
+import random
+vet = []
+cnt = [0, 0, 0, 0]
+loop = True
+while loop is True:
+  num = random.randint(-1, 10)
+  if num == -1:
+    loop = False
+  elif num != -1:
+    cnt[0] += 1
+    vet.append(num)
+sma = sum(vet)
+med = round(sma / cnt[0])
+while cnt[1] < cnt[0]:
+  if vet[cnt[1]] > med:
+    cnt[2] += 1
+  if vet[cnt[1]] < 7:
+    cnt[3] += 1
+  cnt[1] += 1
+print(f"a) Foram lidos {cnt[0]} valores.\n")
+print ("b) ", end='')
+print(*vet, sep=', ', end='\n')
+vet.reverse()
+print(f"\nc)")
+print(*vet, sep='\n')
+print(f"\nd) Soma dos valores: {sma}\n")
+print(f"e) Média dos valores: {med}\n")
+print(f"f) Quantidade de valores acima da média: {cnt[2]}\n")
+print(f"g) Quantidade de valores abaixo de 7: {cnt[3]}\n")
+print("g) Encerre o programa com uma mensagem")
+
