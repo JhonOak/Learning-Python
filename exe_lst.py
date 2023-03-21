@@ -200,3 +200,66 @@ print(f"f) Quantidade de valores acima da média: {cnt[2]}\n")
 print(f"g) Quantidade de valores abaixo de 7: {cnt[3]}\n")
 print("g) Encerre o programa com uma mensagem")
 
+# 16
+import random, math
+zny, fnc = 200, 10
+vet = []
+cnt = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+while cnt[0] < fnc:
+  cnt[0] += 1
+  cms = round(random.randint(0, 10000) * 0.09, 2)
+  pag = zny + cms
+  vet.append(pag)
+  i = math.ceil(cms / 100)
+  cnt[i] += 1
+print(f'''Quantidade de funcionários: {fnc}
+
+Quantidades que receberam determinadas faixas de pagamento: 
+
+$200 - $299   : {cnt[1]}
+$300 - $399   : {cnt[2]}
+$400 - $499   : {cnt[3]}
+$500 - $599   : {cnt[4]}
+$600 - $699   : {cnt[5]}
+$700 - $799   : {cnt[6]}
+$800 - $899   : {cnt[7]}
+$900 - $999   : {cnt[8]}
+Acima de $1000: {cnt[9]}
+
+{vet}''')
+
+# extra - password
+import string
+ok = False
+tst = [string.ascii_lowercase, string.ascii_uppercase, string.digits, string.punctuation]
+while ok == False:
+  vrf = [0, 0, 0, 0]
+  psw = str(input("Defina sua senha: "))
+  vet = [i for i in psw]
+  crt, cnt = len(vet), 0
+  while cnt < crt:
+    tnc = 0
+    while tnc < 4:
+      if vet[cnt] in tst[tnc]:
+        vrf[tnc] += 1
+      tnc +=1
+    cnt += 1
+  if vrf[0] > 0 and vrf[1] > 0 and vrf[2] > 0 and vrf[3] > 0:
+    print("\nSenha aceita, obrigado.\n")
+    ok == True
+  elif vrf[0] == 0 or vrf[1] == 0 or vrf[2] == 0 or vrf[0] == 0:
+    print("\nSenha recusada. \nPor favor, digite uma senha contendo pelo menos uma letra minúscula, uma maiúscula, um número e um carctere especial.\n")
+
+# 18
+print("Use de 1 a 23 para votar no melhor jogador e 0 para encerrar a votação.\nEnquete: Quem foi o melhor jogador?\n")
+vto = None
+jgd = []
+vts = []
+while vto != "0":
+  vto = str(input("Número do jogador: "))
+  if vto not in jgd and vto != "0":
+    jgd.append(vto)
+    vts.append(1)
+  elif vto in jgd:
+    vts[jgd.index(vto)] += 1
+print(jgd,vts)
